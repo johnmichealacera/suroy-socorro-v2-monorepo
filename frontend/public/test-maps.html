@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps Error Handler Test</title>
+    
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Maps Fallback Styles -->
+    <link href="css/maps-fallback.css" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <h1>Google Maps Error Handler Test</h1>
+    
+    <div class="test-section">
+        <h2>Test 1: Console Error Suppression</h2>
+        <p>This test will generate Google Maps related console errors and verify they are suppressed.</p>
+        <button onclick="testConsoleErrors()">Test Console Error Suppression</button>
+        <div id="console-test-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 2: Iframe Error Handling</h2>
+        <p>This test will show how iframes are handled when Google Maps is blocked.</p>
+        <div id="iframe-test">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125863.41631899662!2d125.8561945658465!3d9.661228383191364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3303e3b1411a3e55%3A0x3ee789b24f4e50dd!2sSocorro" 
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test 3: Error Handler Status</h2>
+        <div id="handler-status"></div>
+    </div>
+
+    <!-- Maps Error Handler -->
+    <script src="js/maps-error-handler.js"></script>
+    
+    <script>
+        function testConsoleErrors() {
+            const resultDiv = document.getElementById('console-test-result');
+            
+            // Test 1: Console error suppression
+            console.error('This is a normal error that should show');
+            console.error('maps.googleapis.com error that should be suppressed');
+            console.error('google.maps error that should be suppressed');
+            console.error('gen_204 error that should be suppressed');
+            
+            // Test 2: Console warning suppression
+            console.warn('This is a normal warning that should show');
+            console.warn('maps.googleapis.com warning that should be suppressed');
+            
+            resultDiv.innerHTML = `
+                <div class="status success">
+                    <strong>✓ Console Error Test Complete</strong><br>
+                    Check the browser console. You should see:<br>
+                    • Normal errors and warnings (visible)<br>
+                    • Google Maps related errors and warnings (suppressed)
+                </div>
+            `;
+        }
+        
+        // Check if error handler is loaded
+        function checkHandlerStatus() {
+            const statusDiv = document.getElementById('handler-status');
+            
+            // Check if console.error has been overridden
+            const originalError = console.error.toString();
+            const isOverridden = originalError.includes('function') && !originalError.includes('native code');
+            
+            if (isOverridden) {
+                statusDiv.innerHTML = `
+                    <div class="status success">
+                        <strong>✓ Maps Error Handler Loaded Successfully</strong><br>
+                        Console error suppression is active.
+                    </div>
+                `;
+            } else {
+                statusDiv.innerHTML = `
+                    <div class="status error">
+                        <strong>✗ Maps Error Handler Not Loaded</strong><br>
+                        The error handler script may not be loading correctly.
+                    </div>
+                `;
+            }
+        }
+        
+        // Run status check when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(checkHandlerStatus, 100);
+        });
+    </script>
+</body>
+</html> 
