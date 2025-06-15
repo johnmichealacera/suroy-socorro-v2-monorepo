@@ -1,14 +1,31 @@
 <?php
 
+require_once __DIR__ . '/EnvLoader.php';
+
 class ApiClient {
     private $baseUrl;
     private $apiKey;
     private $timeout;
+    private $useCurl;
 
     public function __construct($baseUrl = null, $apiKey = null) {
-        $this->baseUrl = $baseUrl ?: getenv('API_BASE_URL') ?: 'http://localhost:3001/api/v1';
+        // Load environment variables
+        EnvLoader::load(__DIR__ . '/../.env');
+        
+        $this->baseUrl = $baseUrl ?: getenv('API_BASE_URL');
+        
+        // Validate base URL
+        if (!filter_var($this->baseUrl, FILTER_VALIDATE_URL)) {
+            throw new Exception('Invalid API_BASE_URL: ' . $this->baseUrl);
+        }
+        
         $this->apiKey = $apiKey ?: getenv('API_KEY');
         $this->timeout = getenv('API_TIMEOUT') ?: 30;
+        $this->useCurl = function_exists('curl_init');
+        
+        if (!$this->useCurl) {
+            error_log('Warning: cURL not available, using file_get_contents() fallback');
+        }
     }
 
     public function get($endpoint, $params = []) {
