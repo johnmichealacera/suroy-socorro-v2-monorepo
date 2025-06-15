@@ -17,6 +17,7 @@ define('INCLUDES_DIR', FRONTEND_ROOT . '/includes');
 require_once LIB_DIR . '/Template.php';
 require_once LIB_DIR . '/PageBuilder.php';
 require_once LIB_DIR . '/FlexiblePageBuilder.php';
+require_once LIB_DIR . '/TouristSpotsService.php';
 
 // Simple router
 $uri = $_SERVER['REQUEST_URI'];
@@ -85,6 +86,11 @@ if (strpos($uri, 'spots/') === 0) {
     
     if (file_exists($spotFile)) {
         require $spotFile;
+        return;
+    } else {
+        // Route to dynamic-spot.php with ?slug={spot}
+        $_GET['slug'] = $spot;
+        require PUBLIC_DIR . '/pages/spots/dynamic-spot.php';
         return;
     }
 }
