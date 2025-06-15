@@ -28,5 +28,5 @@ RUN chown -R www-data:www-data /app \
 # Expose port 8000 (matching your local setup)
 EXPOSE 8000
 
-# Use the same approach as your run_server.sh
-CMD ["php", "-S", "0.0.0.0:8000", "start_server.php"] 
+# Use the same approach as your run_server.sh but with quiet flag to reduce log noise
+CMD ["php", "-S", "0.0.0.0:8000", "--quiet", "start_server.php"] 
