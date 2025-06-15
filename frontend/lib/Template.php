@@ -130,13 +130,6 @@ class Template {
     }
     
     /**
-     * Render the footer
-     */
-    public function renderFooter() {
-        include $this->includePath . 'footer.html';
-    }
-    
-    /**
      * Render JavaScript includes
      */
     public function renderJS() {
@@ -166,7 +159,6 @@ class Template {
      * End the page (render footer and close body/html)
      */
     public function end() {
-        $this->renderFooter();
         echo '<!-- Back to Top -->';
         echo '<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>';
         $this->renderJS();
