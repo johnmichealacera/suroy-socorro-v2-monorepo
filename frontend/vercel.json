@@ -1,7 +1,28 @@
 {
     "functions": {
-        "index.php": {
+        "public/index.php": {
+            "runtime": "vercel-php@0.6.0"
+        },
+        "public/tourist-spots.php": {
+            "runtime": "vercel-php@0.6.0"
+        },
+        "public/barangays.php": {
+            "runtime": "vercel-php@0.6.0"
+        },
+        "public/delicacies.php": {
+            "runtime": "vercel-php@0.6.0"
+        },
+        "public/pages/spots/*.php": {
+            "runtime": "vercel-php@0.6.0"
+        },
+        "public/pages/barangays/*.php": {
             "runtime": "vercel-php@0.6.0"
         }
-    }
+    },
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/public/$1"
+        }
+    ]
 }
