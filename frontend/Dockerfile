@@ -7,11 +7,15 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     curl \
-    && docker-php-ext-install \
+    libcurl4-openssl-dev \
+    pkg-config \
+    && docker-php-ext-install -j$(nproc) \
     zip \
     curl \
     && a2enmod rewrite \
-    && a2enmod headers
+    && a2enmod headers \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /var/www/html
