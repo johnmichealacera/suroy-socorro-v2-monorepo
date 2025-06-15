@@ -1,5 +1,5 @@
-# Use PHP 7.4 with Apache for production
-FROM php:7.4-apache
+# Use PHP 7.4 CLI (matching your local setup)
+FROM php:7.4-cli
 
 # Install system dependencies
 RUN apt-get update \
@@ -14,27 +14,19 @@ RUN apt-get update \
 # Install PHP extensions
 RUN docker-php-ext-install zip
 
-# Enable Apache modules
-RUN a2enmod rewrite
-
 # Set working directory
-WORKDIR /var/www/html
+WORKDIR /app
 
 # Copy application files
-COPY . /var/www/html/
-
-# Create a very simple .htaccess that routes everything to start_server.php
-RUN echo 'RewriteEngine On\n\
-RewriteCond %{REQUEST_FILENAME} !-f\n\
-RewriteCond %{REQUEST_FILENAME} !-d\n\
-RewriteRule ^(.*)$ /start_server.php [QSA,L]' > /var/www/html/public/.htaccess
+COPY . /app/
 
 # Set proper permissions
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html
+RUN chown -R www-data:www-data /app \
+    && chmod -R 755 /app \
+    && chmod +x /app/run_server.sh
 
-# Expose port 80
-EXPOSE 80
+# Expose port 8000 (matching your local setup)
+EXPOSE 8000
 
-# Start Apache
-CMD ["apache2-foreground"] 
+# Use the same approach as your run_server.sh
+CMD ["php", "-S", "0.0.0.0:8000", "start_server.php"] 
