@@ -1,0 +1,22 @@
+{
+  "name": "socorro-suroy-frontend",
+  "version": "1.0.0",
+  "description": "**A Capstone Project Showcasing the Beauty of Socorro Island, Philippines**",
+  "main": "router.php",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/johnmichealacera/suroy-socorro-v2-monorepo.git"
+  },
+  "author": "John Micheal M. Acera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnmichealacera/suroy-socorro-v2-monorepo/issues"
+  },
+  "homepage": "https://github.com/johnmichealacera/suroy-socorro-v2-monorepo#readme"
+}

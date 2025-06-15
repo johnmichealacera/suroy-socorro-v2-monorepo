@@ -1,0 +1,31 @@
+{
+  "name": "socorro-suroy-app",
+  "version": "1.0.0",
+  "description": "Complete tourism application for Socorro Island",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter backend run start:dev",
+    "build": "pnpm --filter backend run build",
+    "test": "pnpm --filter backend run test",
+    "lint": "pnpm --filter backend run lint",
+    "format": "pnpm --filter backend run format",
+    "install:all": "pnpm install && cd backend && pnpm install",
+    "clean": "rm -rf node_modules backend/node_modules backend/dist",
+    "setup": "pnpm install:all && echo '✅ All dependencies installed!'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/johnmichealacera/suroy-socorro-v2-monorepo.git"
+  },
+  "author": "John Micheal M. Acera",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/johnmichealacera/suroy-socorro-v2-monorepo/issues"
+  },
+  "homepage": "https://github.com/johnmichealacera/suroy-socorro-v2-monorepo#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}
