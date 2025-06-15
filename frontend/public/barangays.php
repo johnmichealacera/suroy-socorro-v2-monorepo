@@ -147,7 +147,7 @@ $content = '
 // A complex page with multiple sections
 $options = [
     'includes' => [
-        ['file' => 'includes/header-section', 'data' => [
+        ['file' => 'includes/header-section.php', 'data' => [
             'headerTitle' => 'Barangays',
             'breadcrumbItems' => [
                 ["text" => "Home", "url" => "/"],

@@ -10,9 +10,9 @@
           <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
               <div class="navbar-nav ml-auto py-0">
               <a href="/" class="nav-item nav-link <?php echo ($pageTitle === 'home') ? 'active' : ''; ?>">Home</a>
-                <a href="/tourist-spots.php" class="nav-item nav-link <?php echo ($pageTitle === 'tourist-spots') ? 'active' : ''; ?>">Spots</a>
-                <a href="/delicacies.php" class="nav-item nav-link <?php echo ($pageTitle === 'delicacies') ? 'active' : ''; ?>">Delicacies</a>
-                <a href="/barangays.php" class="nav-item nav-link <?php echo ($pageTitle === 'barangays') ? 'active' : ''; ?>">Barangays</a>
+                <a href="/tourist-spots" class="nav-item nav-link <?php echo ($pageTitle === 'tourist-spots') ? 'active' : ''; ?>">Spots</a>
+                <a href="/delicacies" class="nav-item nav-link <?php echo ($pageTitle === 'delicacies') ? 'active' : ''; ?>">Delicacies</a>
+                <a href="/barangays" class="nav-item nav-link <?php echo ($pageTitle === 'barangays') ? 'active' : ''; ?>">Barangays</a>
               </div>
           </div>
       </nav>

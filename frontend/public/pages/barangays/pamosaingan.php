@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// The Template and PageBuilder classes are already included by start_server.php
+// Create page builder
+$pageBuilder = new FlexiblePageBuilder();
 
-<?php include_once('head.php'); ?>
-
-<body>
-    <!-- Topbar Start -->
-    <?php include_once('topbar.php'); ?>
-    <!-- Topbar End -->
-
-
-    <!-- Navbar Start -->
-    <?php 
-        $pageTitle = "single";
-        include_once("navbar.php"); 
-    ?>
-    <!-- Navbar End -->
-
-
-    <!-- Header Start -->
-    <div class="container-fluid page-header">
-        <div class="container">
-            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Pamosaingan</h3>
-                <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="barangays.php">Barangays</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Barangay Detail</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header End -->
-
+// Page content
+$content = '
     <!-- Detail Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -41,7 +14,7 @@
                     <div class="pb-3">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="public/img/barangays/pamosaingan-boat.jpg" alt="">
+                                <img class="img-fluid w-100" src="/public/img/barangays/pamosaingan-boat.jpg" alt="">
                             </div>
                         </div>
                         <div class="bg-white mb-3" style="padding: 30px;">
@@ -53,18 +26,18 @@
                             <p>The household population of Pamosaingan in the 2015 Census was 1,229 broken down into 236 households or an average of 5.21 members per household.</p>
                             <div class="tableWrap" id="households-table-wrap"><table class="chart-table" id="households-table"><caption class="chart-table-caption" id="households-table-caption">Number of households in Pamosaingan (1990‑2015)</caption><thead><tr><th scope="col">Census date</th><th scope="col">Household population</th><th scope="col">Number of households</th><th scope="col">Average household size</th></tr></thead><tbody><tr><th scope="row"><time datetime="1990-05-01">1990 May&nbsp;1</time></th><td id="household-pop-1990">1,098</td><td>186</td><td>5.90</td></tr><tr><th scope="row"><time datetime="1995-09-01">1995 <abbr title="September">Sep</abbr>&nbsp;1</time></th><td id="household-pop-1995">982</td><td>173</td><td>5.68</td></tr><tr><th scope="row"><time datetime="2000-05-01">2000 May&nbsp;1</time></th><td id="household-pop-2000">1,238</td><td>199</td><td>6.22</td></tr><tr><th scope="row"><time datetime="2007-08-01">2007 <abbr title="August">Aug</abbr>&nbsp;1</time></th><td id="household-pop-2007">1,053</td><td>199</td><td>5.29</td></tr><tr><th scope="row"><time datetime="2010-05-01">2010 May&nbsp;1</time></th><td id="household-pop-2010">1,113</td><td>222</td><td>5.01</td></tr><tr><th scope="row"><time datetime="2015-08-01">2015 <abbr title="August">Aug</abbr>&nbsp;1</time></th><td id="household-pop-2015">1,229</td><td>236</td><td>5.21</td></tr></tbody></table></div>
                             <h4 class="mb-3">Population Information</h4>
-                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="public/img/barangays/pamosaingan.jpg">
+                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="/public/img/barangays/pamosaingan.jpg">
                             <h5 class="mb-3">Population by age group</h5>
                             <p>According to the 2015 Census, the age group with the highest population in Pamosaingan is 15 to 19, with 124 individuals. Conversely, the age group with the lowest population is Under 1, with 15 individuals. Combining age groups together, those aged 14 and below, consisting of the young dependent population which include infants/babies, children and young adolescents/teenagers, make up an aggregate of 26.61% (327). Those aged 15 up to 64, roughly, the economically active population and actual or potential members of the work force, constitute a total of 64.04% (787). Finally, old dependent population consisting of the senior citizens, those aged 65 and over, total 9.36% (115) in all. The computed Age Dependency Ratios mean that among the population of Pamosaingan, there are 42 youth dependents to every 100 of the working age population; there are 15 aged/senior citizens to every 100 of the working population; and overall, there are 56 dependents (young and old-age) to every 100 of the working population. The median age of 27 indicates that half of the entire population of Pamosaingan are aged less than 27 and the other half are over the age of 27.</p>
                             <h5 class="mb-3">Historical population</h5>
-                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="public/img/tourist-spots/socorro-overlooking.jpg">
+                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="/public/img/tourist-spots/socorro-overlooking.jpg">
                             <p>The population of Pamosaingan grew from 1,107 in 1990 to 1,191 in 2020, an increase of 84 people over the course of 30 years. The latest census figures in 2020 denote a negative growth rate of 0.66%, or a decrease of 38 people, from the previous population of 1,229 in 2015.</p>
                             <h5 class="mb-3">Adjacent barangays</h5>
                             <p>Pamosaingan shares a common border with the following barangay(s):</p>
                             <ul class="simList2col" id="adjacent-bgy-list">
-                                <li><a href="nueva-estrella.php">Nueva Estrella, Socorro, Surigao del Norte</a></li>
-                                <li><a href="honrado.php">Honrado, Socorro, Surigao del Norte</a></li>
-                                <li><a href="salog.php">Salog, Socorro, Surigao del Norte</a></li>
+                                <li><a href="/barangays/nueva-estrella">Nueva Estrella, Socorro, Surigao del Norte</a></li>
+                                <li><a href="/barangays/honrado">Honrado, Socorro, Surigao del Norte</a></li>
+                                <li><a href="/barangays/salog">Salog, Socorro, Surigao del Norte</a></li>
                             </ul>
                         </div>
                     </div>
@@ -137,18 +110,24 @@
             </div>
         </div>
     </div>
-    <!-- Blog End -->
+    <!-- Detail End -->
+';
 
+// A complex page with multiple sections
+$options = [
+    'includes' => [
+        ['file' => 'includes/header-section.php', 'data' => [
+            'headerTitle' => 'Pamosaingan',
+            'breadcrumbItems' => [
+                ["text" => "Barangays", "url" => "/barangays"],
+                ["text" => "Details", "url" => null]
+            ]
+        ]],
+        ['content' => $content],
+        ['file' => 'includes/footer.php']
+    ],
+];
 
-    <!-- Footer Start -->
-    <?php include_once("footer.html"); ?>
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-    <?php include_once("javascript.php"); ?>
-</body>
-
-</html>
+// Build the page
+$pageBuilder->buildCustomPage($content, 'Pamosaingan', 'Pamosaingan - Barangay Details', $options);
+?>

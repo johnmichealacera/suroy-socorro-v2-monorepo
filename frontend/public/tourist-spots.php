@@ -66,6 +66,6 @@ $pageBuilder->buildCustomPage($content, 'My Page', 'Description here', $options)
     document.getElementById('submitButton').addEventListener('click', function() {
         // Get the selected value from the dropdown
         var selectedValue = document.getElementById('destinationSelect').value;
-        window.location.href = `../public/pages/spots/${selectedValue}.php`;
+        window.location.href = `/spots/${selectedValue}`;
     });
 </script>

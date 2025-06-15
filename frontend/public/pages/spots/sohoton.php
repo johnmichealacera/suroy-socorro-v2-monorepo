@@ -1,37 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+// The Template and PageBuilder classes are already included by start_server.php
+// Create page builder
+$pageBuilder = new FlexiblePageBuilder();
 
-<?php include_once('head.php'); ?>
-
-<body>
-    <!-- Topbar Start -->
-    <?php include_once('topbar.php'); ?>
-    <!-- Topbar End -->
-
-
-    <!-- Navbar Start -->
-    <?php 
-        $pageTitle = "single";
-        include_once("navbar.php"); 
-    ?>
-    <!-- Navbar End -->
-
-
-    <!-- Header Start -->
-    <div class="container-fluid page-header">
-        <div class="container">
-            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-                <h3 class="display-4 text-white text-uppercase">Sohoton</h3>
-                <div class="d-inline-flex text-white">
-                    <p class="m-0 text-uppercase"><a class="text-white" href="tourist-spots.php">Tourist Spots</a></p>
-                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
-                    <p class="m-0 text-uppercase">Detail</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Header End -->
-
+// Page content
+$content = '
     <!-- Detail Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -41,7 +14,7 @@
                     <div class="pb-3">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="public/img/tourist-spots/sohoton3.jpg" alt="">
+                                <img class="img-fluid w-100" src="/public/img/tourist-spots/sohoton3.jpg" alt="">
                             </div>
                         </div>
                         <div class="bg-white mb-3" style="padding: 30px;">
@@ -49,12 +22,12 @@
                                 <div class="text-primary text-uppercase text-decoration-none">Group of tourists enjoying a dip in the clear seawaters</div>
                             </div>
                             <h2 class="mb-3">Overview</h2>
-                            <p>Nestled amidst lush valleys, rolling hilltops, and powdery white beaches, Sohoton Cove is the crown jewel of the island. Embark on an exhilarating journey aboard a pump boat to uncover its hidden treasures. Navigate crystal-clear waters teeming with stingless jellyfish, a mesmerizing sight you won't want to miss.</p>
-                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="public/img/tourist-spots/sohoton.jpg">
+                            <p>Nestled amidst lush valleys, rolling hilltops, and powdery white beaches, Sohoton Cove is the crown jewel of the island. Embark on an exhilarating journey aboard a pump boat to uncover its hidden treasures. Navigate crystal-clear waters teeming with stingless jellyfish, a mesmerizing sight you won\'t want to miss.</p>
+                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="/public/img/tourist-spots/sohoton.jpg">
                             <h5 class="mb-3">Details</h5>
-                            <p>Delve into the mysterious allure of Sohoton's captivating caves, each whispering tales of ancient wonders. For an aerial perspective, soar above with a drone and witness panoramic views of the surrounding islets, painting a picture-perfect backdrop. Sohoton Cove awaits, promising an unforgettable adventure through nature's pristine splendor.</p>
+                            <p>Delve into the mysterious allure of Sohoton\'s captivating caves, each whispering tales of ancient wonders. For an aerial perspective, soar above with a drone and witness panoramic views of the surrounding islets, painting a picture-perfect backdrop. Sohoton Cove awaits, promising an unforgettable adventure through nature\'s pristine splendor.</p>
                             <h5 class="mb-3">How to get there</h5>
-                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="public/img/tourist-spots/jellyfish.jpg">
+                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="/public/img/tourist-spots/jellyfish.jpg">
                             <p>Take a van or a car to Dapa Port from Sayak Airport. Then, charter a boat from Dapa Port to Bucas Grande. You can also join a Bucas Grande shared or private tour for a more convenient trip that includes land and boat transfers.</p>
                         </div>
                     </div>
@@ -74,18 +47,24 @@
             </div>
         </div>
     </div>
-    <!-- Blog End -->
+    <!-- Detail End -->
+';
 
+// A complex page with multiple sections
+$options = [
+    'includes' => [
+        ['file' => 'includes/header-section.php', 'data' => [
+            'headerTitle' => 'Sohoton',
+            'breadcrumbItems' => [
+                ["text" => "Tourist Spots", "url" => "/tourist-spots"],
+                ["text" => "Details", "url" => null]
+            ]
+        ]],
+        ['content' => $content],
+        ['file' => 'includes/footer.php']
+    ],
+];
 
-    <!-- Footer Start -->
-    <?php include_once("footer.html"); ?>
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-    <?php include_once("javascript.php"); ?>
-</body>
-
-</html>
+// Build the page
+$pageBuilder->buildCustomPage($content, 'Sohoton', 'Sohoton - Jellyfish Sanctuary and Cave Exploration', $options);
+?>

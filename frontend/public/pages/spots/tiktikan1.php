@@ -1,10 +1,37 @@
-<?php
-// The Template and PageBuilder classes are already included by start_server.php
-// Create page builder
-$pageBuilder = new FlexiblePageBuilder();
+<!DOCTYPE html>
+<html lang="en">
 
-// Page content
-$content = '
+<?php include_once('head.php'); ?>
+
+<body>
+    <!-- Topbar Start -->
+    <?php include_once('topbar.php'); ?>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <?php 
+        $pageTitle = "single";
+        include_once("navbar.php"); 
+    ?>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid page-header">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-4 text-white text-uppercase">Tiktikan</h3>
+                <div class="d-inline-flex text-white">
+                    <p class="m-0 text-uppercase"><a class="text-white" href="tourist-spots.php">Tourist Spots</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">Detail</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
     <!-- Detail Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -14,7 +41,7 @@ $content = '
                     <div class="pb-3">
                         <div class="blog-item">
                             <div class="position-relative">
-                                <img class="img-fluid w-100" src="/public/img/tourist-spots/tiktikan2.jpg" alt="">
+                                <img class="img-fluid w-100" src="public/img/tourist-spots/tiktikan2.jpg" alt="">
                             </div>
                         </div>
                         <div class="bg-white mb-3" style="padding: 30px;">
@@ -22,12 +49,12 @@ $content = '
                                 <div class="text-primary text-uppercase text-decoration-none">Entrance sign of the resort</div>
                             </div>
                             <h2 class="mb-3">Overview</h2>
-                            <p>The Philippines\' Surigao del Norte province\'s Bucas Grande island is widely known for its hidden lagoon, Tiktikan Lagoon. In close proximity to Sohoton Cove, Tiktikan Lagoon is a 2-hectare lagoon. It is a portion of Bucas Grande and has serene blue waters encircled by a thick green limestone forest. </p>
-                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="/public/img/tourist-spots/tiktikan4.jpg">
+                            <p>The Philippines' Surigao del Norte province's Bucas Grande island is widely known for its hidden lagoon, Tiktikan Lagoon. In close proximity to Sohoton Cove, Tiktikan Lagoon is a 2-hectare lagoon. It is a portion of Bucas Grande and has serene blue waters encircled by a thick green limestone forest. </p>
+                            <img class="img-fluid w-50 float-left mr-4 mb-2" src="public/img/tourist-spots/tiktikan4.jpg">
                             <h5 class="mb-3">Details</h5>
                             <p>Tiktikan Lagoon is a tiny, shallow lake that lies a hundred meters into the karst region. Its water rises with the high tide and falls with the low tide, which is typical for this region of the Philippines. Additionally, it has a connection to the ocean via an underground passageway that penetrates deep into the ground before emerging into an adjacent lagoon. There are a lot of activities you can do in this lagoon. You can swim in the crystal-clear waters that surround this spot or engage in thrilling pursuits like slides, ledge leaping, and paddleboarding.</p>
                             <h5 class="mb-3">How to get there</h5>
-                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="/public/img/tourist-spots/tiktikan1.jpg">
+                            <img class="img-fluid w-50 float-right ml-4 mb-2" src="public/img/tourist-spots/tiktikan1.jpg">
                             <p>Take a van or a car to Dapa Port from Sayak Airport. Then, charter a boat from Dapa Port to Bucas Grande. You can also join a Bucas Grande shared or private tour for a more convenient trip that includes land and boat transfers.</p>
                         </div>
                     </div>
@@ -47,24 +74,18 @@ $content = '
             </div>
         </div>
     </div>
-    <!-- Detail End -->
-';
+    <!-- Blog End -->
 
-// A complex page with multiple sections
-$options = [
-    'includes' => [
-        ['file' => 'includes/header-section.php', 'data' => [
-            'headerTitle' => 'Tiktikan',
-            'breadcrumbItems' => [
-                ["text" => "Tourist Spots", "url" => "/tourist-spots"],
-                ["text" => "Details", "url" => null]
-            ]
-        ]],
-        ['content' => $content],
-        ['file' => 'includes/footer.php']
-    ],
-];
 
-// Build the page
-$pageBuilder->buildCustomPage($content, 'My Page', 'Description here', $options);
-?>
+    <!-- Footer Start -->
+    <?php include_once("footer.html"); ?>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <?php include_once("javascript.php"); ?>
+</body>
+
+</html>

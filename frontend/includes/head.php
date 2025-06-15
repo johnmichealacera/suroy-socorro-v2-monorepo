@@ -11,7 +11,7 @@
     <meta property="og:image" content="https://live.staticflickr.com/65535/53794506071_0f0f92939b_c.jpg">
 
     <!-- Favicon -->
-    <link href="public/img/socorro-logo.png" rel="icon">
+    <link href="/public/img/socorro-logo.png" rel="icon">
     <link rel="icon" href="/favicon.png" type="image/png">
 
     <!-- Google Web Fonts -->
@@ -22,13 +22,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="public/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <link href="/public/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/public/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet (Compiled from SCSS) -->
-<!-- Maps Fallback Styles -->
-<link href="public/css/maps-fallback.css" rel="stylesheet">
-    <link href="public/css/style.scss.css" rel="stylesheet">
+    <!-- Maps Fallback Styles -->
+    <link href="/public/css/maps-fallback.css" rel="stylesheet">
+    <link href="/public/css/style.scss.css" rel="stylesheet">
     
     <?php if (isset($additionalCSS) && !empty($additionalCSS)): ?>
         <?php foreach ($additionalCSS as $css): ?>

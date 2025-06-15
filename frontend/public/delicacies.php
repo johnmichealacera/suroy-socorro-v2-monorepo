@@ -3,13 +3,6 @@
 // Create page builder
 $pageBuilder = new FlexiblePageBuilder();
 
-// Set header parameters
-$headerTitle = "Tourist Spots";
-$breadcrumbItems = [
-    ["text" => "Home", "url" => "/"],
-    ["text" => "Destination", "url" => null]
-];
-
 // Page content
 $content = '
     <!-- Blog Start -->
