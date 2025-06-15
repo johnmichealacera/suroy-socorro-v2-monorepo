@@ -28,7 +28,7 @@ import { ImagesModule } from './modules/images/images.module';
         rejectUnauthorized: false,
       },
       synchronize: process.env.NODE_ENV !== 'production',
-      logging: process.env.NODE_ENV !== 'production',
+      logging: process.env.NODE_ENV !== 'production' ? ['error', 'warn'] : false,
       entities: [Barangay, TouristSpot, SpotCategory, Image],
       autoLoadEntities: true,
     }),

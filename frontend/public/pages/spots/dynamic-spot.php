@@ -143,6 +143,7 @@ $options = [
                 ["text" => "Details", "url" => null]
             ]
         ]],
+        ['file' => 'includes/tourist-spots-selector.php'],
         ['content' => $content],
         ['file' => 'includes/footer.php']
     ],
